@@ -17,7 +17,7 @@ class NASATabBarController: UITabBarController {
     
     private func configureTabBarController() {
         viewControllers = [
-            createNavigationController(viewController: UIViewController(), title: "Curiosity", imageName: "c.square"),
+            createNavigationController(viewController: CuriosityViewController(), title: "Curiosity", imageName: "c.square"),
             createNavigationController(viewController: UIViewController(), title: "Opportunity", imageName: "o.square"),
             createNavigationController(viewController: UIViewController(), title: "Spirit", imageName: "s.square")
         ]

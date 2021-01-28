@@ -10,20 +10,20 @@ import Foundation
 final class NASADataManager {
     
     static let shared = NASADataManager()
-    static let apiKey = "\(NASAConstants.API_KEY)"
+    static let apiKey = NASAConstants.API_KEY
     
     private init() {}
     
     enum Endpoints {
         static let baseURL = "https://api.nasa.gov/mars-photos/api/v1"
-        static let apiKeyParam = "?api_key\(NASADataManager.apiKey)"
+        static let apiKeyParam = "api_key=\(NASADataManager.apiKey)"
         
         case getCuriosityPhotos
         
         var urlString: String {
             switch self {
             case .getCuriosityPhotos:
-                return "\(Endpoints.baseURL)/rovers/curiosity/photos\(Endpoints.apiKeyParam)"
+                return "\(Endpoints.baseURL)/rovers/curiosity/photos?sol=1000&\(Endpoints.apiKeyParam)"
             }
         }
         
@@ -45,19 +45,18 @@ final class NASADataManager {
                 completion(.failure(.invalidResponse))
                 return
             }
-            
+                        
             guard let data = data else {
                 completion(.failure(.invalidData))
                 return
             }
             
             do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let decoder = JSONDecoder()                
                 let result = try decoder.decode(NASAResult.self, from: data)
                 completion(.success(result))
             } catch {
-                completion(.failure(.invalidData))
+                completion(.failure(.unableToComplete))
             }
         }
         
