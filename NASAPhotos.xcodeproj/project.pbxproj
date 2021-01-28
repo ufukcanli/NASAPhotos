@@ -9,21 +9,19 @@
 /* Begin PBXBuildFile section */
 		D2DDA86D25C2BA95000F3891 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDA86C25C2BA95000F3891 /* AppDelegate.swift */; };
 		D2DDA86F25C2BA95000F3891 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDA86E25C2BA95000F3891 /* SceneDelegate.swift */; };
-		D2DDA87125C2BA95000F3891 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDA87025C2BA95000F3891 /* ViewController.swift */; };
-		D2DDA87425C2BA96000F3891 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2DDA87225C2BA96000F3891 /* Main.storyboard */; };
 		D2DDA87625C2BA99000F3891 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2DDA87525C2BA99000F3891 /* Assets.xcassets */; };
 		D2DDA87925C2BA99000F3891 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2DDA87725C2BA99000F3891 /* LaunchScreen.storyboard */; };
+		D2DDA88525C2BBC1000F3891 /* NASATabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDA88425C2BBC1000F3891 /* NASATabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D2DDA86925C2BA95000F3891 /* NASAPhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NASAPhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2DDA86C25C2BA95000F3891 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2DDA86E25C2BA95000F3891 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D2DDA87025C2BA95000F3891 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D2DDA87325C2BA96000F3891 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D2DDA87525C2BA99000F3891 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2DDA87825C2BA99000F3891 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2DDA87A25C2BA99000F3891 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2DDA88425C2BBC1000F3891 /* NASATabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASATabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +56,7 @@
 			children = (
 				D2DDA86C25C2BA95000F3891 /* AppDelegate.swift */,
 				D2DDA86E25C2BA95000F3891 /* SceneDelegate.swift */,
-				D2DDA87025C2BA95000F3891 /* ViewController.swift */,
-				D2DDA87225C2BA96000F3891 /* Main.storyboard */,
+				D2DDA88425C2BBC1000F3891 /* NASATabBarController.swift */,
 				D2DDA87525C2BA99000F3891 /* Assets.xcassets */,
 				D2DDA87725C2BA99000F3891 /* LaunchScreen.storyboard */,
 				D2DDA87A25C2BA99000F3891 /* Info.plist */,
@@ -126,7 +123,6 @@
 			files = (
 				D2DDA87925C2BA99000F3891 /* LaunchScreen.storyboard in Resources */,
 				D2DDA87625C2BA99000F3891 /* Assets.xcassets in Resources */,
-				D2DDA87425C2BA96000F3891 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +133,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2DDA87125C2BA95000F3891 /* ViewController.swift in Sources */,
 				D2DDA86D25C2BA95000F3891 /* AppDelegate.swift in Sources */,
+				D2DDA88525C2BBC1000F3891 /* NASATabBarController.swift in Sources */,
 				D2DDA86F25C2BA95000F3891 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,14 +142,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D2DDA87225C2BA96000F3891 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D2DDA87325C2BA96000F3891 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D2DDA87725C2BA99000F3891 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -289,6 +277,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7995LB4979;
 				INFOPLIST_FILE = NASAPhotos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,6 +297,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7995LB4979;
 				INFOPLIST_FILE = NASAPhotos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
