@@ -27,6 +27,12 @@ class CuriosityViewController: UIViewController {
         performRequest(withCurrentPage: currentPage)
     }
     
+    @objc func filterButtonDidTap() {
+        let viewController = UIViewController()
+        viewController.view.backgroundColor = .systemRed
+        present(viewController, animated: true, completion: nil)
+    }
+    
     private func performRequest(withCurrentPage currentPage: Int) {
         isLoading = true
         self.showLoadingView()
@@ -40,13 +46,15 @@ class CuriosityViewController: UIViewController {
                 print(error.rawValue)
             }
             self.isLoading = false
-            DispatchQueue.main.async {
-                self.hideLoadingView()
-            }
+            DispatchQueue.main.async { self.hideLoadingView() }
         }
     }
     
     private func configureViewController() {
+        let filterImage = UIImage(systemName: "line.horizontal.3.decrease.circle")
+        let filterButton = UIBarButtonItem(image: filterImage, style: .plain, target: self, action: #selector(filterButtonDidTap))
+        navigationItem.rightBarButtonItem = filterButton
+        
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: NASAHelper.createThreeColumnFlowLayout(in: view))
         collectionView.register(NASAPhotoCell.self, forCellWithReuseIdentifier: NASAPhotoCell.reuseIdentifier)
         collectionView.backgroundColor = .systemBackground
