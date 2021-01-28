@@ -7,7 +7,9 @@
 
 import UIKit
 
-class CuriosityViewController: NASAViewController {
+class CuriosityViewController: UIViewController {
+    
+    private var collectionView: UICollectionView!
     
     private var photos = [NASAPhoto]()
     private var isLoading = false
@@ -36,21 +38,25 @@ class CuriosityViewController: NASAViewController {
     }
     
     private func configureViewController() {
-        collectionView.backgroundColor = .systemBackground
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: NASAHelper.createThreeColumnFlowLayout(in: view))
         collectionView.register(CuriosityCell.self, forCellWithReuseIdentifier: CuriosityCell.reuseIdentifier)
+        collectionView.backgroundColor = .systemBackground
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        view.addSubview(collectionView)
     }
 
 }
 
 // MARK: - UICollectionViewDataSource
 
-extension CuriosityViewController {
+extension CuriosityViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CuriosityCell.reuseIdentifier, for: indexPath) as! CuriosityCell
         return cell
     }

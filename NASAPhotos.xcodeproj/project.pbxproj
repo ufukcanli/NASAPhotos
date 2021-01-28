@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D2191A8C25C307CF002F111E /* NASAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2191A8B25C307CF002F111E /* NASAViewController.swift */; };
 		D2191A9425C30FF3002F111E /* CuriosityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2191A9325C30FF3002F111E /* CuriosityCell.swift */; };
+		D2191A9A25C314F5002F111E /* NASAHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2191A9925C314F5002F111E /* NASAHelper.swift */; };
 		D2DDA86D25C2BA95000F3891 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDA86C25C2BA95000F3891 /* AppDelegate.swift */; };
 		D2DDA86F25C2BA95000F3891 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDA86E25C2BA95000F3891 /* SceneDelegate.swift */; };
 		D2DDA87625C2BA99000F3891 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2DDA87525C2BA99000F3891 /* Assets.xcassets */; };
@@ -22,8 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D2191A8B25C307CF002F111E /* NASAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAViewController.swift; sourceTree = "<group>"; };
 		D2191A9325C30FF3002F111E /* CuriosityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuriosityCell.swift; sourceTree = "<group>"; };
+		D2191A9925C314F5002F111E /* NASAHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAHelper.swift; sourceTree = "<group>"; };
 		D2DDA86925C2BA95000F3891 /* NASAPhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NASAPhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2DDA86C25C2BA95000F3891 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2DDA86E25C2BA95000F3891 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				D2DDA89C25C2CC0E000F3891 /* NASAError.swift */,
+				D2191A9925C314F5002F111E /* NASAHelper.swift */,
 				D2DDA89825C2C778000F3891 /* NASAConstants.swift */,
 			);
 			path = Utilities;
@@ -135,7 +136,6 @@
 		D2DDA8A725C2CDCC000F3891 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D2191A8B25C307CF002F111E /* NASAViewController.swift */,
 				D2DDA88425C2BBC1000F3891 /* NASATabBarController.swift */,
 			);
 			path = Controllers;
@@ -217,7 +217,7 @@
 				D2DDA88525C2BBC1000F3891 /* NASATabBarController.swift in Sources */,
 				D2DDA89425C2C439000F3891 /* NASADataManager.swift in Sources */,
 				D2DDA86F25C2BA95000F3891 /* SceneDelegate.swift in Sources */,
-				D2191A8C25C307CF002F111E /* NASAViewController.swift in Sources */,
+				D2191A9A25C314F5002F111E /* NASAHelper.swift in Sources */,
 				D2DDA89D25C2CC0E000F3891 /* NASAError.swift in Sources */,
 				D2191A9425C30FF3002F111E /* CuriosityCell.swift in Sources */,
 			);
