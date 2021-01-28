@@ -12,6 +12,7 @@
 		D2DDA87625C2BA99000F3891 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2DDA87525C2BA99000F3891 /* Assets.xcassets */; };
 		D2DDA87925C2BA99000F3891 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2DDA87725C2BA99000F3891 /* LaunchScreen.storyboard */; };
 		D2DDA88525C2BBC1000F3891 /* NASATabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDA88425C2BBC1000F3891 /* NASATabBarController.swift */; };
+		D2DDA88D25C2C2C4000F3891 /* NASADataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDA88C25C2C2C4000F3891 /* NASADataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		D2DDA87825C2BA99000F3891 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2DDA87A25C2BA99000F3891 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2DDA88425C2BBC1000F3891 /* NASATabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASATabBarController.swift; sourceTree = "<group>"; };
+		D2DDA88C25C2C2C4000F3891 /* NASADataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASADataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				D2DDA86C25C2BA95000F3891 /* AppDelegate.swift */,
 				D2DDA86E25C2BA95000F3891 /* SceneDelegate.swift */,
+				D2DDA88C25C2C2C4000F3891 /* NASADataModel.swift */,
 				D2DDA88425C2BBC1000F3891 /* NASATabBarController.swift */,
 				D2DDA87525C2BA99000F3891 /* Assets.xcassets */,
 				D2DDA87725C2BA99000F3891 /* LaunchScreen.storyboard */,
@@ -133,6 +136,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2DDA88D25C2C2C4000F3891 /* NASADataModel.swift in Sources */,
 				D2DDA86D25C2BA95000F3891 /* AppDelegate.swift in Sources */,
 				D2DDA88525C2BBC1000F3891 /* NASATabBarController.swift in Sources */,
 				D2DDA86F25C2BA95000F3891 /* SceneDelegate.swift in Sources */,
