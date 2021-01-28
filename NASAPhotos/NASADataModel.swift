@@ -7,18 +7,18 @@
 
 import Foundation
 
-struct NASAResult {
+struct NASAResult: Decodable {
     let photos: [NASAPhoto]
 }
 
-struct NASAPhoto {
+struct NASAPhoto: Decodable {
     let id: Int
     let imageSrc: String
     let camera: NASACamera
     let earthDate: Date
 }
 
-struct NASARover {
+struct NASARover: Decodable {
     let id: Int
     let name: String
     let status: String
@@ -26,7 +26,7 @@ struct NASARover {
     let launchDate: Date
 }
 
-struct NASACamera {
+struct NASACamera: Decodable {
     let id: Int
     let name: String
     let fullName: String

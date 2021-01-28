@@ -15,7 +15,7 @@ class NASATabBarController: UITabBarController {
         configureTabBarController()
     }
     
-    func configureTabBarController() {
+    private func configureTabBarController() {
         viewControllers = [
             createNavigationController(viewController: UIViewController(), title: "Curiosity", imageName: "c.square"),
             createNavigationController(viewController: UIViewController(), title: "Opportunity", imageName: "o.square"),
@@ -23,7 +23,7 @@ class NASATabBarController: UITabBarController {
         ]
     }
     
-    func createNavigationController(viewController: UIViewController, title: String, imageName: String) -> UINavigationController {
+    private func createNavigationController(viewController: UIViewController, title: String, imageName: String) -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: viewController)
         viewController.navigationItem.title = title
         viewController.view.backgroundColor = .systemBackground

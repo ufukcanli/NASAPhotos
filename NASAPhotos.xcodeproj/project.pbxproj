@@ -13,6 +13,10 @@
 		D2DDA87925C2BA99000F3891 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2DDA87725C2BA99000F3891 /* LaunchScreen.storyboard */; };
 		D2DDA88525C2BBC1000F3891 /* NASATabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDA88425C2BBC1000F3891 /* NASATabBarController.swift */; };
 		D2DDA88D25C2C2C4000F3891 /* NASADataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDA88C25C2C2C4000F3891 /* NASADataModel.swift */; };
+		D2DDA89025C2C38D000F3891 /* CuriosityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDA88F25C2C38D000F3891 /* CuriosityViewController.swift */; };
+		D2DDA89425C2C439000F3891 /* NASADataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDA89325C2C439000F3891 /* NASADataManager.swift */; };
+		D2DDA89925C2C778000F3891 /* NASAConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDA89825C2C778000F3891 /* NASAConstants.swift */; };
+		D2DDA89D25C2CC0E000F3891 /* NASAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDA89C25C2CC0E000F3891 /* NASAError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		D2DDA87A25C2BA99000F3891 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2DDA88425C2BBC1000F3891 /* NASATabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASATabBarController.swift; sourceTree = "<group>"; };
 		D2DDA88C25C2C2C4000F3891 /* NASADataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASADataModel.swift; sourceTree = "<group>"; };
+		D2DDA88F25C2C38D000F3891 /* CuriosityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuriosityViewController.swift; sourceTree = "<group>"; };
+		D2DDA89325C2C439000F3891 /* NASADataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASADataManager.swift; sourceTree = "<group>"; };
+		D2DDA89825C2C778000F3891 /* NASAConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAConstants.swift; sourceTree = "<group>"; };
+		D2DDA89C25C2CC0E000F3891 /* NASAError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +67,11 @@
 				D2DDA86C25C2BA95000F3891 /* AppDelegate.swift */,
 				D2DDA86E25C2BA95000F3891 /* SceneDelegate.swift */,
 				D2DDA88C25C2C2C4000F3891 /* NASADataModel.swift */,
+				D2DDA89325C2C439000F3891 /* NASADataManager.swift */,
 				D2DDA88425C2BBC1000F3891 /* NASATabBarController.swift */,
+				D2DDA88F25C2C38D000F3891 /* CuriosityViewController.swift */,
+				D2DDA89825C2C778000F3891 /* NASAConstants.swift */,
+				D2DDA89C25C2CC0E000F3891 /* NASAError.swift */,
 				D2DDA87525C2BA99000F3891 /* Assets.xcassets */,
 				D2DDA87725C2BA99000F3891 /* LaunchScreen.storyboard */,
 				D2DDA87A25C2BA99000F3891 /* Info.plist */,
@@ -136,10 +148,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2DDA89925C2C778000F3891 /* NASAConstants.swift in Sources */,
 				D2DDA88D25C2C2C4000F3891 /* NASADataModel.swift in Sources */,
 				D2DDA86D25C2BA95000F3891 /* AppDelegate.swift in Sources */,
+				D2DDA89025C2C38D000F3891 /* CuriosityViewController.swift in Sources */,
 				D2DDA88525C2BBC1000F3891 /* NASATabBarController.swift in Sources */,
+				D2DDA89425C2C439000F3891 /* NASADataManager.swift in Sources */,
 				D2DDA86F25C2BA95000F3891 /* SceneDelegate.swift in Sources */,
+				D2DDA89D25C2CC0E000F3891 /* NASAError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
