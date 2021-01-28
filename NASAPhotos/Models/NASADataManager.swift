@@ -18,12 +18,12 @@ final class NASADataManager {
         static let baseURL = "https://api.nasa.gov/mars-photos/api/v1"
         static let apiKeyParam = "api_key=\(NASADataManager.apiKey)"
         
-        case getCuriosityPhotos
+        case getCuriosityPhotos(Int)
         
         var urlString: String {
             switch self {
-            case .getCuriosityPhotos:
-                return "\(Endpoints.baseURL)/rovers/curiosity/photos?sol=1000&\(Endpoints.apiKeyParam)"
+            case .getCuriosityPhotos(let page):
+                return "\(Endpoints.baseURL)/rovers/curiosity/photos?sol=1000&page=\(page)&\(Endpoints.apiKeyParam)"
             }
         }
         
@@ -32,9 +32,9 @@ final class NASADataManager {
         }
     }
     
-    func getCuriosityPhotos(completion: @escaping (Result<NASAResult, NASAError>) -> Void) {
+    func getCuriosityPhotos(withCurrentPage page: Int, completion: @escaping (Result<NASAResult, NASAError>) -> Void) {
         
-        let task = URLSession.shared.dataTask(with: Endpoints.getCuriosityPhotos.url) { data, response, error in
+        let task = URLSession.shared.dataTask(with: Endpoints.getCuriosityPhotos(page).url) { data, response, error in
 
             if let _ = error {
                 completion(.failure(.unableToComplete))

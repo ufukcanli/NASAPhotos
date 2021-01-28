@@ -13,27 +13,28 @@ class CuriosityViewController: UIViewController {
     
     private var photos = [NASAPhoto]()
     private var isLoading = false
+    private var currentPage = 1
             
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        performRequest()
+        performRequest(withCurrentPage: currentPage)
         
         configureViewController()
     }
     
-    private func performRequest() {
+    private func performRequest(withCurrentPage currentPage: Int) {
         isLoading = true
-        NASADataManager.shared.getCuriosityPhotos { [weak self] result in
+        NASADataManager.shared.getCuriosityPhotos(withCurrentPage: currentPage) { [weak self] result in
             guard let self = self else { return }
-            self.isLoading = false
             switch result {
             case .success(let results):
-                self.photos = results.photos
+                self.photos.append(contentsOf: results.photos)
                 DispatchQueue.main.async { self.collectionView.reloadData() }
             case .failure(let error):
                 print(error.rawValue)
             }
+            self.isLoading = false
         }
     }
     
@@ -48,7 +49,7 @@ class CuriosityViewController: UIViewController {
 
 }
 
-extension CuriosityViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension CuriosityViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
@@ -57,5 +58,20 @@ extension CuriosityViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NASAPhotoCell.reuseIdentifier, for: indexPath) as! NASAPhotoCell
         return cell
+    }
+}
+
+extension CuriosityViewController: UICollectionViewDelegate {
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let screenHeight = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - screenHeight {
+            guard !isLoading else { return }
+            currentPage += 1
+            performRequest(withCurrentPage: currentPage)
+        }
     }
 }
