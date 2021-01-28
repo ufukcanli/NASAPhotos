@@ -10,6 +10,8 @@ import UIKit
 class NASAPhotoCell: UICollectionViewCell {
     
     static let reuseIdentifier = "NASAPhotoCell"
+    
+    private let imageView = UIImageView(image: #imageLiteral(resourceName: "placeholder"))
         
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,8 +23,26 @@ class NASAPhotoCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func updateCell(withPhoto photo: NASAPhoto) {
+        NASADataManager.shared.downloadImage(from: photo.imgSrc) { [weak self] image in
+            guard let self = self else { return }
+            DispatchQueue.main.async { self.imageView.image = image }
+        }
+    }
+    
     private func configureCell() {
-        backgroundColor = .systemPurple
+        backgroundColor = .systemBackground
+        layer.masksToBounds = true
+        layer.cornerRadius = 10
         
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(imageView)
+        
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
+        ])
     }
 }

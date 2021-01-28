@@ -65,6 +65,7 @@ extension CuriosityViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NASAPhotoCell.reuseIdentifier, for: indexPath) as! NASAPhotoCell
+        cell.updateCell(withPhoto: photos[indexPath.item])
         return cell
     }
 }

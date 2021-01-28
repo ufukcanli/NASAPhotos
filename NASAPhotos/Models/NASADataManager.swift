@@ -5,12 +5,14 @@
 //  Created by Ufuk Canlı on 28.01.2021.
 //
 
-import Foundation
+import UIKit
 
 final class NASADataManager {
     
     static let shared = NASADataManager()
     static let apiKey = NASAConstants.API_KEY
+    
+    let cache = NSCache<NSString, UIImage>()
     
     private init() {}
     
@@ -58,6 +60,38 @@ final class NASADataManager {
             } catch {
                 completion(.failure(.unableToComplete))
             }
+        }
+        
+        task.resume()
+    }
+    
+    func downloadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
+        
+        let cacheKey = NSString(string: urlString)
+        
+        if let image = cache.object(forKey: cacheKey) {
+            completion(image)
+            return
+        }
+        
+        guard let url = URL(string: urlString) else {
+            completion(nil)
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
+            guard let self = self,
+                  error == nil,
+                  let data = data,
+                  let response = response as? HTTPURLResponse, response.statusCode == 200,
+                  let image = UIImage(data: data)
+            else {
+                completion(nil)
+                return
+            }
+            
+            self.cache.setObject(image, forKey: cacheKey)
+            completion(image)
         }
         
         task.resume()

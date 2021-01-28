@@ -63,12 +63,12 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		D2191AAB25C3255C002F111E /* Extension */ = {
+		D2191AAB25C3255C002F111E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				D2191AAC25C32589002F111E /* UIViewController+Extension.swift */,
 			);
-			path = Extension;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		D2DDA86025C2BA95000F3891 = {
@@ -94,7 +94,7 @@
 				D2DDA8A625C2CDC0000F3891 /* Views */,
 				D2DDA8A225C2CD5A000F3891 /* Screens */,
 				D2DDA8A525C2CDA7000F3891 /* Utilities */,
-				D2191AAB25C3255C002F111E /* Extension */,
+				D2191AAB25C3255C002F111E /* Extensions */,
 				D2DDA8A125C2CD42000F3891 /* Supporting Files */,
 				D2DDA87525C2BA99000F3891 /* Assets.xcassets */,
 				D2DDA87725C2BA99000F3891 /* LaunchScreen.storyboard */,
@@ -389,7 +389,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ufukcanli.NASAPhotos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -409,7 +409,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ufukcanli.NASAPhotos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
