@@ -1,5 +1,5 @@
 //
-//  CuriosityCell.swift
+//  NASAPhotoCell.swift
 //  NASAPhotos
 //
 //  Created by Ufuk Canlı on 28.01.2021.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class CuriosityCell: UICollectionViewCell {
+class NASAPhotoCell: UICollectionViewCell {
     
-    static let reuseIdentifier = "CuriosityCell"
+    static let reuseIdentifier = "NASAPhotoCell"
         
     override init(frame: CGRect) {
         super.init(frame: frame)

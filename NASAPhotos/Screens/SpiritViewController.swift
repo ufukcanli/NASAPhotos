@@ -1,5 +1,5 @@
 //
-//  CuriosityViewController.swift
+//  SpiritViewController.swift
 //  NASAPhotos
 //
 //  Created by Ufuk Canlı on 28.01.2021.
@@ -7,36 +7,16 @@
 
 import UIKit
 
-class CuriosityViewController: UIViewController {
+class SpiritViewController: UIViewController {
     
     private var collectionView: UICollectionView!
-    
-    private var photos = [NASAPhoto]()
-    private var isLoading = false
-            
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        performRequest()
-        
+
         configureViewController()
     }
-    
-    private func performRequest() {
-        isLoading = true
-        NASADataManager.shared.getCuriosityPhotos { [weak self] result in
-            guard let self = self else { return }
-            self.isLoading = false
-            switch result {
-            case .success(let results):
-                self.photos = results.photos
-                DispatchQueue.main.async { self.collectionView.reloadData() }
-            case .failure(let error):
-                print(error.rawValue)
-            }
-        }
-    }
-    
+
     private func configureViewController() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: NASAHelper.createThreeColumnFlowLayout(in: view))
         collectionView.register(NASAPhotoCell.self, forCellWithReuseIdentifier: NASAPhotoCell.reuseIdentifier)
@@ -45,13 +25,12 @@ class CuriosityViewController: UIViewController {
         collectionView.delegate = self
         view.addSubview(collectionView)
     }
-
 }
 
-extension CuriosityViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension SpiritViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos.count
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
