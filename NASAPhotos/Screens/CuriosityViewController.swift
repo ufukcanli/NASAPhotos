@@ -17,14 +17,19 @@ class CuriosityViewController: UIViewController {
             
     override func viewDidLoad() {
         super.viewDidLoad()
+                
+        configureViewController()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         performRequest(withCurrentPage: currentPage)
-        
-        configureViewController()
     }
     
     private func performRequest(withCurrentPage currentPage: Int) {
         isLoading = true
+        self.showLoadingView()
         NASADataManager.shared.getCuriosityPhotos(withCurrentPage: currentPage) { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -35,6 +40,9 @@ class CuriosityViewController: UIViewController {
                 print(error.rawValue)
             }
             self.isLoading = false
+            DispatchQueue.main.async {
+                self.hideLoadingView()
+            }
         }
     }
     
