@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D2191A8C25C307CF002F111E /* NASAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2191A8B25C307CF002F111E /* NASAViewController.swift */; };
+		D2191A9425C30FF3002F111E /* CuriosityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2191A9325C30FF3002F111E /* CuriosityCell.swift */; };
 		D2DDA86D25C2BA95000F3891 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDA86C25C2BA95000F3891 /* AppDelegate.swift */; };
 		D2DDA86F25C2BA95000F3891 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDA86E25C2BA95000F3891 /* SceneDelegate.swift */; };
 		D2DDA87625C2BA99000F3891 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2DDA87525C2BA99000F3891 /* Assets.xcassets */; };
@@ -17,11 +19,11 @@
 		D2DDA89425C2C439000F3891 /* NASADataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDA89325C2C439000F3891 /* NASADataManager.swift */; };
 		D2DDA89925C2C778000F3891 /* NASAConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDA89825C2C778000F3891 /* NASAConstants.swift */; };
 		D2DDA89D25C2CC0E000F3891 /* NASAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDA89C25C2CC0E000F3891 /* NASAError.swift */; };
-		D2DDA8A925C2CEB8000F3891 /* CuriosityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDA8A825C2CEB8000F3891 /* CuriosityViewModel.swift */; };
-		D2DDA8AD25C2CF24000F3891 /* NASABindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDA8AC25C2CF24000F3891 /* NASABindable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D2191A8B25C307CF002F111E /* NASAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAViewController.swift; sourceTree = "<group>"; };
+		D2191A9325C30FF3002F111E /* CuriosityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuriosityCell.swift; sourceTree = "<group>"; };
 		D2DDA86925C2BA95000F3891 /* NASAPhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NASAPhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2DDA86C25C2BA95000F3891 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2DDA86E25C2BA95000F3891 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,8 +36,6 @@
 		D2DDA89325C2C439000F3891 /* NASADataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASADataManager.swift; sourceTree = "<group>"; };
 		D2DDA89825C2C778000F3891 /* NASAConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAConstants.swift; sourceTree = "<group>"; };
 		D2DDA89C25C2CC0E000F3891 /* NASAError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAError.swift; sourceTree = "<group>"; };
-		D2DDA8A825C2CEB8000F3891 /* CuriosityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuriosityViewModel.swift; sourceTree = "<group>"; };
-		D2DDA8AC25C2CF24000F3891 /* NASABindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASABindable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D2191A9225C30FC1002F111E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D2191A9325C30FF3002F111E /* CuriosityCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		D2DDA86025C2BA95000F3891 = {
 			isa = PBXGroup;
 			children = (
@@ -101,25 +109,15 @@
 		D2DDA8A225C2CD5A000F3891 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				D2DDA8A325C2CD6F000F3891 /* Curiosity */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
-		D2DDA8A325C2CD6F000F3891 /* Curiosity */ = {
-			isa = PBXGroup;
-			children = (
-				D2DDA8A825C2CEB8000F3891 /* CuriosityViewModel.swift */,
 				D2DDA88F25C2C38D000F3891 /* CuriosityViewController.swift */,
 			);
-			path = Curiosity;
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		D2DDA8A525C2CDA7000F3891 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				D2DDA89C25C2CC0E000F3891 /* NASAError.swift */,
-				D2DDA8AC25C2CF24000F3891 /* NASABindable.swift */,
 				D2DDA89825C2C778000F3891 /* NASAConstants.swift */,
 			);
 			path = Utilities;
@@ -128,6 +126,7 @@
 		D2DDA8A625C2CDC0000F3891 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D2191A9225C30FC1002F111E /* Cells */,
 				D2DDA8A725C2CDCC000F3891 /* Controllers */,
 			);
 			path = Views;
@@ -136,6 +135,7 @@
 		D2DDA8A725C2CDCC000F3891 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D2191A8B25C307CF002F111E /* NASAViewController.swift */,
 				D2DDA88425C2BBC1000F3891 /* NASATabBarController.swift */,
 			);
 			path = Controllers;
@@ -213,13 +213,13 @@
 				D2DDA89925C2C778000F3891 /* NASAConstants.swift in Sources */,
 				D2DDA88D25C2C2C4000F3891 /* NASADataModel.swift in Sources */,
 				D2DDA86D25C2BA95000F3891 /* AppDelegate.swift in Sources */,
-				D2DDA8A925C2CEB8000F3891 /* CuriosityViewModel.swift in Sources */,
 				D2DDA89025C2C38D000F3891 /* CuriosityViewController.swift in Sources */,
 				D2DDA88525C2BBC1000F3891 /* NASATabBarController.swift in Sources */,
 				D2DDA89425C2C439000F3891 /* NASADataManager.swift in Sources */,
 				D2DDA86F25C2BA95000F3891 /* SceneDelegate.swift in Sources */,
+				D2191A8C25C307CF002F111E /* NASAViewController.swift in Sources */,
 				D2DDA89D25C2CC0E000F3891 /* NASAError.swift in Sources */,
-				D2DDA8AD25C2CF24000F3891 /* NASABindable.swift in Sources */,
+				D2191A9425C30FF3002F111E /* CuriosityCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
