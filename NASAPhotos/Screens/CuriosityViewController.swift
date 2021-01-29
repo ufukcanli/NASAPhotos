@@ -81,6 +81,7 @@ extension CuriosityViewController: UICollectionViewDelegate {
         let detailViewController = NASADetailViewController(item: item)
         detailViewController.modalPresentationStyle = .overCurrentContext
         detailViewController.modalTransitionStyle = .crossDissolve
+        tabBarController?.tabBar.isUserInteractionEnabled = false
         present(detailViewController, animated: true, completion: nil)
     }
     

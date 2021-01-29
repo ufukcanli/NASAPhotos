@@ -31,7 +31,7 @@ class NASADetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         configureViewController()
         createDismissTapGesture()
         updateUIElements()
@@ -74,7 +74,7 @@ class NASADetailViewController: UIViewController {
         containerView.addSubview(stackView)
     }
 
-    private func configureViewController() {
+    private func configureViewController() {        
         imageView.layer.cornerRadius = 16
         imageView.layer.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
