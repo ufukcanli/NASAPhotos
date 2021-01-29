@@ -17,14 +17,10 @@ class CuriosityViewController: UIViewController {
             
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        configureViewController()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
         performRequest(withCurrentPage: currentPage)
+        
+        configureViewController()
     }
     
     @objc func filterButtonDidTap() {
@@ -79,6 +75,14 @@ extension CuriosityViewController: UICollectionViewDataSource {
 }
 
 extension CuriosityViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = photos[indexPath.item]
+        let detailViewController = NASADetailViewController(item: item)
+        detailViewController.modalPresentationStyle = .overCurrentContext
+        detailViewController.modalTransitionStyle = .crossDissolve
+        present(detailViewController, animated: true, completion: nil)
+    }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let offsetY = scrollView.contentOffset.y
