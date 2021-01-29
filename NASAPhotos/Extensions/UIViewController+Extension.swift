@@ -23,7 +23,7 @@ extension UIViewController {
         }
         
         let activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.color = .systemGreen
+        activityIndicator.color = .systemBlue
         containerView.addSubview(activityIndicator)
         
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
@@ -38,5 +38,15 @@ extension UIViewController {
     
     func hideLoadingView() {
         containerView.removeFromSuperview()
+    }
+    
+    func presentAlertOnMainThread(title: String, message: String, buttonTitle: String) {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alertController.modalPresentationStyle = .overFullScreen
+            alertController.modalTransitionStyle = .crossDissolve
+            alertController.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 }

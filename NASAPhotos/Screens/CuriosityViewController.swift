@@ -43,7 +43,7 @@ class CuriosityViewController: UIViewController {
                 self.photos.append(contentsOf: results.photos)
                 DispatchQueue.main.async { self.collectionView.reloadData() }
             case .failure(let error):
-                print(error.rawValue)
+                self.presentAlertOnMainThread(title: "Ooops!", message: error.rawValue, buttonTitle: "Ok")
             }
             self.isLoading = false
             DispatchQueue.main.async { self.hideLoadingView() }
