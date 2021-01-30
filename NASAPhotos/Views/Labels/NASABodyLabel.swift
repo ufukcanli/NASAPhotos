@@ -12,7 +12,7 @@ class NASABodyLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        configure()
+        configureLabel()
     }
     
     required init?(coder: NSCoder) {
@@ -24,7 +24,7 @@ class NASABodyLabel: UILabel {
         self.textAlignment = textAlignment
     }
     
-    private func configure() {
+    private func configureLabel() {
         textColor = .secondaryLabel
         font = .preferredFont(forTextStyle: .body)
         adjustsFontSizeToFitWidth = true
