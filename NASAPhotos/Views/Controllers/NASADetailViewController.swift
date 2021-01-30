@@ -50,10 +50,10 @@ class NASADetailViewController: UIViewController {
     
     private func updateUIElements() {
         vehicleNameLabel.text = item.rover.name
-        vehicleStatusLabel.text = item.rover.status
-        shootingDateLabel.text = item.earthDate.convertToDisplayFormat()
-        vehicleLaunchDateLabel.text = item.rover.launchDate.convertToDisplayFormat()
-        vehicleLandingDateLabel.text = item.rover.landingDate.convertToDisplayFormat()
+        vehicleStatusLabel.text = "Status: " + item.rover.status
+        shootingDateLabel.text = "Shooting: " + item.earthDate.convertToDisplayFormat()
+        vehicleLaunchDateLabel.text = "Launch: " + item.rover.launchDate.convertToDisplayFormat()
+        vehicleLandingDateLabel.text = "Landing: " + item.rover.landingDate.convertToDisplayFormat()
         
         NASADataManager.shared.downloadImage(from: item.imgSrc) { [weak self] image in
             guard let self = self else { return }
@@ -62,8 +62,8 @@ class NASADetailViewController: UIViewController {
     }
     
     private func configureStackView() {
-        [imageView, shootingDateLabel, vehicleNameLabel,
-         vehicleStatusLabel, vehicleLaunchDateLabel, vehicleLandingDateLabel].forEach { subview in
+        [imageView, vehicleNameLabel, vehicleStatusLabel,
+         vehicleLaunchDateLabel, vehicleLandingDateLabel, shootingDateLabel].forEach { subview in
             stackView.addArrangedSubview(subview)
         }
         

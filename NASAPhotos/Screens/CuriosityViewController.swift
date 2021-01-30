@@ -17,10 +17,9 @@ class CuriosityViewController: UIViewController {
             
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        performRequest(withCurrentPage: currentPage)
-        
+                
         configureViewController()
+        performRequest(withCurrentPage: currentPage)
     }
     
     @objc func filterButtonDidTap() {
@@ -81,7 +80,6 @@ extension CuriosityViewController: UICollectionViewDelegate {
         let detailViewController = NASADetailViewController(item: item)
         detailViewController.modalPresentationStyle = .overCurrentContext
         detailViewController.modalTransitionStyle = .crossDissolve
-        tabBarController?.tabBar.isUserInteractionEnabled = false
         present(detailViewController, animated: true, completion: nil)
     }
     
