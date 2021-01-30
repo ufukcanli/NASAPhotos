@@ -21,11 +21,14 @@ final class NASADataManager {
         static let apiKeyParam = "api_key=\(NASADataManager.apiKey)"
         
         case getCuriosityPhotos(Int)
+        case getCuriosityPhotosByCamera(String)
         
         var urlString: String {
             switch self {
             case .getCuriosityPhotos(let page):
                 return "\(Endpoints.baseURL)/rovers/curiosity/photos?sol=1000&page=\(page)&\(Endpoints.apiKeyParam)"
+            case .getCuriosityPhotosByCamera(let camera):
+                return "\(Endpoints.baseURL)/rovers/curiosity/photos?sol=1000&camera=\(camera)&\(Endpoints.apiKeyParam)"
             }
         }
         
@@ -34,7 +37,7 @@ final class NASADataManager {
         }
     }
     
-    func getCuriosityPhotos(withCurrentPage page: Int, completion: @escaping (Result<NASAResult, NASAError>) -> Void) {
+    func getCuriosityPhotos(page: Int, completion: @escaping (Result<NASAResult, NASAError>) -> Void) {
         
         let task = URLSession.shared.dataTask(with: Endpoints.getCuriosityPhotos(page).url) { data, response, error in
 
@@ -55,6 +58,37 @@ final class NASADataManager {
             
             do {
                 let decoder = JSONDecoder()                
+                let result = try decoder.decode(NASAResult.self, from: data)
+                completion(.success(result))
+            } catch {
+                completion(.failure(.unableToComplete))
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func getCuriosityPhotos(byCamera camera: String, completion: @escaping (Result<NASAResult, NASAError>) -> Void) {
+        
+        let task = URLSession.shared.dataTask(with: Endpoints.getCuriosityPhotosByCamera(camera).url) { data, response, error in
+
+            if let _ = error {
+                completion(.failure(.unableToComplete))
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completion(.failure(.invalidResponse))
+                return
+            }
+                        
+            guard let data = data else {
+                completion(.failure(.invalidData))
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
                 let result = try decoder.decode(NASAResult.self, from: data)
                 completion(.success(result))
             } catch {

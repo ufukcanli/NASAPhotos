@@ -14,24 +14,25 @@ class CuriosityViewController: UIViewController {
     private var photos = [NASAPhoto]()
     private var isLoading = false
     private var currentPage = 1
+    private var isFiltered = false
             
     override func viewDidLoad() {
         super.viewDidLoad()
                 
         configureViewController()
-        performRequest(withCurrentPage: currentPage)
+        performRequest(byPage: currentPage)
     }
     
     @objc func filterButtonDidTap() {
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .systemRed
-        present(viewController, animated: true, completion: nil)
+        let cameraViewController = NASACameraViewController()
+        cameraViewController.delegate = self
+        present(cameraViewController, animated: true, completion: nil)
     }
     
-    private func performRequest(withCurrentPage currentPage: Int) {
+    private func performRequest(byPage page: Int) {
         isLoading = true
         self.showLoadingView()
-        NASADataManager.shared.getCuriosityPhotos(withCurrentPage: currentPage) { [weak self] result in
+        NASADataManager.shared.getCuriosityPhotos(page: currentPage) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let results):
@@ -41,6 +42,24 @@ class CuriosityViewController: UIViewController {
                 self.presentAlertOnMainThread(title: "Ooops!", message: error.rawValue, buttonTitle: "Ok")
             }
             self.isLoading = false
+            DispatchQueue.main.async { self.hideLoadingView() }
+        }
+    }
+    
+    private func performRequest(byCamera camera: String) {
+        isLoading = true
+        self.showLoadingView()
+        NASADataManager.shared.getCuriosityPhotos(byCamera: camera) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let results):
+                self.photos.append(contentsOf: results.photos)
+                DispatchQueue.main.async { self.collectionView.reloadData() }
+            case .failure(let error):
+                self.presentAlertOnMainThread(title: "Ooops!", message: error.rawValue, buttonTitle: "Ok")
+            }
+            self.isLoading = false
+            self.isFiltered = true
             DispatchQueue.main.async { self.hideLoadingView() }
         }
     }
@@ -89,9 +108,22 @@ extension CuriosityViewController: UICollectionViewDelegate {
         let screenHeight = scrollView.frame.size.height
         
         if offsetY > contentHeight - screenHeight {
-            guard !isLoading else { return }
+            guard !isLoading, !isFiltered else { return }
             currentPage += 1
-            performRequest(withCurrentPage: currentPage)
+            performRequest(byPage: currentPage)
+        }
+    }
+}
+
+extension CuriosityViewController: NASACameraViewControllerDelegate {
+    func didFinishPickingCamera(camera: String) {
+        guard !isLoading else { return }
+        photos.removeAll()
+        if camera != "all" {
+            performRequest(byCamera: camera)
+        } else {
+            isFiltered = false
+            performRequest(byPage: currentPage)
         }
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D209FC0925C58C30002D1890 /* NASACameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D209FC0825C58C30002D1890 /* NASACameraViewController.swift */; };
 		D2191A9425C30FF3002F111E /* NASAPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2191A9325C30FF3002F111E /* NASAPhotoCell.swift */; };
 		D2191A9A25C314F5002F111E /* NASAHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2191A9925C314F5002F111E /* NASAHelper.swift */; };
 		D2191AA525C31C1D002F111E /* OpportunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2191AA425C31C1D002F111E /* OpportunityViewController.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D209FC0825C58C30002D1890 /* NASACameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASACameraViewController.swift; sourceTree = "<group>"; };
 		D2191A9325C30FF3002F111E /* NASAPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAPhotoCell.swift; sourceTree = "<group>"; };
 		D2191A9925C314F5002F111E /* NASAHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAHelper.swift; sourceTree = "<group>"; };
 		D2191AA425C31C1D002F111E /* OpportunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunityViewController.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			children = (
 				D2DDA88425C2BBC1000F3891 /* NASATabBarController.swift */,
 				D2D7529425C40CBE00DBF53D /* NASADetailViewController.swift */,
+				D209FC0825C58C30002D1890 /* NASACameraViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				D2D7529E25C40E7500DBF53D /* NASAContainerView.swift in Sources */,
 				D2191AA525C31C1D002F111E /* OpportunityViewController.swift in Sources */,
 				D2191AAD25C32589002F111E /* UIViewController+Extension.swift in Sources */,
+				D209FC0925C58C30002D1890 /* NASACameraViewController.swift in Sources */,
 				D2D752A225C40F5B00DBF53D /* NASATitleLabel.swift in Sources */,
 				D2DDA89925C2C778000F3891 /* NASAConstants.swift in Sources */,
 				D2DDA88D25C2C2C4000F3891 /* NASADataModel.swift in Sources */,

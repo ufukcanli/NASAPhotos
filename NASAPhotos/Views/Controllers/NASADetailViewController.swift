@@ -69,7 +69,7 @@ class NASADetailViewController: UIViewController {
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 5
+        stackView.spacing = 2
         
         containerView.addSubview(stackView)
     }
