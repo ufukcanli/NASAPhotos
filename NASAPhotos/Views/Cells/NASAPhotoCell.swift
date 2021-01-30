@@ -11,7 +11,7 @@ class NASAPhotoCell: UICollectionViewCell {
     
     static let reuseIdentifier = "NASAPhotoCell"
     
-    private let imageView = UIImageView(image: #imageLiteral(resourceName: "placeholder"))
+    private let imageView = UIImageView(image: #imageLiteral(resourceName: "nasa"))
         
     override init(frame: CGRect) {
         super.init(frame: frame)

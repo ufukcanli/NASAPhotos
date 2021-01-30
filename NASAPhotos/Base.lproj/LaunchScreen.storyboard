@@ -17,19 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nasa-logo" translatesAutoresizingMaskIntoConstraints="NO" id="dHE-tF-xyS">
-                                <rect key="frame" x="60" y="350.5" width="294" height="195"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nasa" translatesAutoresizingMaskIntoConstraints="NO" id="Ct2-k6-8xD">
+                                <rect key="frame" x="20" y="284" width="374" height="328"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="195" id="2G1-GM-xtM"/>
-                                    <constraint firstAttribute="width" constant="294" id="QeK-yR-8YU"/>
+                                    <constraint firstAttribute="width" constant="374" id="1Rf-rg-VuX"/>
+                                    <constraint firstAttribute="height" constant="328" id="r99-W5-CU2"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dHE-tF-xyS" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="DGr-Uq-MS3"/>
-                            <constraint firstItem="dHE-tF-xyS" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="aTT-9V-fd2"/>
+                            <constraint firstItem="Ct2-k6-8xD" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="0oC-si-rcU"/>
+                            <constraint firstItem="Ct2-k6-8xD" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Bx5-3X-Ol3"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -39,7 +39,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="nasa-logo" width="1664" height="1406"/>
+        <image name="nasa" width="1748" height="1424"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
