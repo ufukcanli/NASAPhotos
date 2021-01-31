@@ -22,6 +22,10 @@ final class NASADataManager {
         
         case getCuriosityPhotos(Int)
         case getCuriosityPhotosByCamera(String)
+        case getOpportunityPhotos(Int)
+        case getOpportunityPhotosByCamera(String)
+        case getSpiritPhotos(Int)
+        case getSpiritPhotosByCamera(String)
         
         var urlString: String {
             switch self {
@@ -29,6 +33,14 @@ final class NASADataManager {
                 return "\(Endpoints.baseURL)/rovers/curiosity/photos?sol=1000&page=\(page)&\(Endpoints.apiKeyParam)"
             case .getCuriosityPhotosByCamera(let camera):
                 return "\(Endpoints.baseURL)/rovers/curiosity/photos?sol=1000&camera=\(camera)&\(Endpoints.apiKeyParam)"
+            case .getOpportunityPhotos(let page):
+                return "\(Endpoints.baseURL)/rovers/opportunity/photos?sol=1000&page=\(page)&\(Endpoints.apiKeyParam)"
+            case .getOpportunityPhotosByCamera(let camera):
+                return "\(Endpoints.baseURL)/rovers/opportunity/photos?sol=1000&camera=\(camera)&\(Endpoints.apiKeyParam)"
+            case .getSpiritPhotos(let page):
+                return "\(Endpoints.baseURL)/rovers/spirit/photos?sol=1000&page=\(page)&\(Endpoints.apiKeyParam)"
+            case .getSpiritPhotosByCamera(let camera):
+                return "\(Endpoints.baseURL)/rovers/spirit/photos?sol=1000&camera=\(camera)&\(Endpoints.apiKeyParam)"
             }
         }
         
@@ -71,6 +83,130 @@ final class NASADataManager {
     func getCuriosityPhotos(byCamera camera: String, completion: @escaping (Result<NASAResult, NASAError>) -> Void) {
         
         let task = URLSession.shared.dataTask(with: Endpoints.getCuriosityPhotosByCamera(camera).url) { data, response, error in
+
+            if let _ = error {
+                completion(.failure(.unableToComplete))
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completion(.failure(.invalidResponse))
+                return
+            }
+                        
+            guard let data = data else {
+                completion(.failure(.invalidData))
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let result = try decoder.decode(NASAResult.self, from: data)
+                completion(.success(result))
+            } catch {
+                completion(.failure(.unableToComplete))
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func getOpportunityPhotos(page: Int, completion: @escaping (Result<NASAResult, NASAError>) -> Void) {
+        
+        let task = URLSession.shared.dataTask(with: Endpoints.getOpportunityPhotos(page).url) { data, response, error in
+
+            if let _ = error {
+                completion(.failure(.unableToComplete))
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completion(.failure(.invalidResponse))
+                return
+            }
+                        
+            guard let data = data else {
+                completion(.failure(.invalidData))
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let result = try decoder.decode(NASAResult.self, from: data)
+                completion(.success(result))
+            } catch {
+                completion(.failure(.unableToComplete))
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func getOpportunityPhotos(byCamera camera: String, completion: @escaping (Result<NASAResult, NASAError>) -> Void) {
+        
+        let task = URLSession.shared.dataTask(with: Endpoints.getOpportunityPhotosByCamera(camera).url) { data, response, error in
+
+            if let _ = error {
+                completion(.failure(.unableToComplete))
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completion(.failure(.invalidResponse))
+                return
+            }
+                        
+            guard let data = data else {
+                completion(.failure(.invalidData))
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let result = try decoder.decode(NASAResult.self, from: data)
+                completion(.success(result))
+            } catch {
+                completion(.failure(.unableToComplete))
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func getSpiritPhotos(page: Int, completion: @escaping (Result<NASAResult, NASAError>) -> Void) {
+        
+        let task = URLSession.shared.dataTask(with: Endpoints.getSpiritPhotos(page).url) { data, response, error in
+
+            if let _ = error {
+                completion(.failure(.unableToComplete))
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completion(.failure(.invalidResponse))
+                return
+            }
+                        
+            guard let data = data else {
+                completion(.failure(.invalidData))
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let result = try decoder.decode(NASAResult.self, from: data)
+                completion(.success(result))
+            } catch {
+                completion(.failure(.unableToComplete))
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func getSpiritPhotos(byCamera camera: String, completion: @escaping (Result<NASAResult, NASAError>) -> Void) {
+        
+        let task = URLSession.shared.dataTask(with: Endpoints.getSpiritPhotosByCamera(camera).url) { data, response, error in
 
             if let _ = error {
                 completion(.failure(.unableToComplete))

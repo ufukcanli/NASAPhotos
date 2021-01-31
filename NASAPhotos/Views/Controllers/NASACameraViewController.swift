@@ -16,18 +16,20 @@ class NASACameraViewController: UIViewController {
     private let cameraStackView = UIStackView()
     
     private let curiosityCameras = ["ALL", "FHAZ", "RHAZ", "MAST", "CHEMCAM", "MAHLI", "MARDI", "NAVCAM"]
-    private let opportunityCameras = ["FHAZ", "RHAZ", "NAVCAM", "PANCAM", "MINITES"]
-    private let spiritCameras = ["FHAZ", "RHAZ", "NAVCAM", "PANCAM", "MINITES"]
+    private let opportunityCameras = ["ALL", "FHAZ", "RHAZ", "NAVCAM", "PANCAM", "MINITES"]
+    private let spiritCameras = ["ALL", "FHAZ", "RHAZ", "NAVCAM", "PANCAM", "MINITES"]
         
     weak var delegate: NASACameraViewControllerDelegate?
 
     private var timer: Timer?
     
     private var filter: String!
+    private var from: String!
     
-    init(filter: String) {
+    init(filter: String, from: String) {
         super.init(nibName: nil, bundle: nil)
         self.filter = filter
+        self.from = from
     }
     
     required init?(coder: NSCoder) {
@@ -61,15 +63,23 @@ class NASACameraViewController: UIViewController {
         cameraStackView.distribution = .fillEqually
         cameraStackView.spacing = 10
         
-        curiosityCameras.forEach { cameraName in
-            let cameraButton = self.createCameraButton(title: cameraName)
+        var cameras: [String]
+        switch from {
+        case "o":
+            cameras = opportunityCameras
+        case "s":
+            cameras = spiritCameras
+        default:
+            cameras = curiosityCameras
+        }
+        
+        cameras.forEach { cameraName in
+            var cameraButton: UIButton
             if filter == cameraName.uppercased() {
-                cameraButton.backgroundColor = .systemBlue
-                cameraButton.setTitleColor(.white, for: .normal)
+                cameraButton = self.createCameraButton(title: cameraName, backColor: .systemBlue, titleColor: .white)
                 cameraStackView.addArrangedSubview(cameraButton)
             } else {
-                cameraButton.backgroundColor = .systemBackground
-                cameraButton.setTitleColor(.systemBlue, for: .normal)
+                cameraButton = self.createCameraButton(title: cameraName, backColor: .systemBackground, titleColor: .systemBlue)
                 cameraStackView.addArrangedSubview(cameraButton)
             }
         }
@@ -77,11 +87,12 @@ class NASACameraViewController: UIViewController {
         view.addSubview(cameraStackView)
     }
     
-    private func createCameraButton(title: String) -> UIButton {
+    private func createCameraButton(title: String, backColor: UIColor, titleColor: UIColor) -> UIButton {
         let cameraButton = UIButton(type: .system)
         view.addSubview(cameraButton)
         cameraButton.setTitle(title, for: .normal)
-        cameraButton.setTitleColor(.systemBlue, for: .normal)
+        cameraButton.setTitleColor(titleColor, for: .normal)
+        cameraButton.backgroundColor = backColor
         cameraButton.titleLabel?.font = .preferredFont(forTextStyle: .headline)
         cameraButton.layer.cornerRadius = 10
         cameraButton.layer.borderWidth = 2

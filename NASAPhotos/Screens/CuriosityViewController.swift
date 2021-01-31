@@ -25,7 +25,7 @@ class CuriosityViewController: UIViewController {
     }
     
     @objc func filterButtonDidTap() {
-        let cameraViewController = NASACameraViewController(filter: currentFilter)
+        let cameraViewController = NASACameraViewController(filter: currentFilter, from: "c")
         cameraViewController.delegate = self
         present(cameraViewController, animated: true, completion: nil)
     }
