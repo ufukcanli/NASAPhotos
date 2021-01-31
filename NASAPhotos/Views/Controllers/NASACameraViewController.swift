@@ -23,7 +23,16 @@ class NASACameraViewController: UIViewController {
 
     private var timer: Timer?
     
-    private var selectedCamera = "all"
+    private var filter: String!
+    
+    init(filter: String) {
+        super.init(nibName: nil, bundle: nil)
+        self.filter = filter
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,16 +46,11 @@ class NASACameraViewController: UIViewController {
     
     @objc private func cameraButtonDidTap(_ sender: UIButton) {
         guard let cameraName = sender.currentTitle else { return }
-        
-        selectedCamera = cameraName.lowercased()
-            
-        sender.backgroundColor = .systemBlue
-        sender.setTitleColor(.white, for: .normal)
-        
+        filter = cameraName.lowercased()
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { _ in
             self.dismiss(animated: true) {
-                self.delegate?.didFinishPickingCamera(camera: self.selectedCamera)
+                self.delegate?.didFinishPickingCamera(camera: self.filter)
             }
         }
     }
@@ -59,7 +63,15 @@ class NASACameraViewController: UIViewController {
         
         curiosityCameras.forEach { cameraName in
             let cameraButton = self.createCameraButton(title: cameraName)
-            cameraStackView.addArrangedSubview(cameraButton)
+            if filter == cameraName.uppercased() {
+                cameraButton.backgroundColor = .systemBlue
+                cameraButton.setTitleColor(.white, for: .normal)
+                cameraStackView.addArrangedSubview(cameraButton)
+            } else {
+                cameraButton.backgroundColor = .systemBackground
+                cameraButton.setTitleColor(.systemBlue, for: .normal)
+                cameraStackView.addArrangedSubview(cameraButton)
+            }
         }
         
         view.addSubview(cameraStackView)

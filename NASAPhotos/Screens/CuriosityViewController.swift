@@ -15,6 +15,7 @@ class CuriosityViewController: UIViewController {
     private var isLoading = false
     private var currentPage = 1
     private var isFiltered = false
+    private var currentFilter = "ALL"
             
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,7 @@ class CuriosityViewController: UIViewController {
     }
     
     @objc func filterButtonDidTap() {
-        let cameraViewController = NASACameraViewController()
+        let cameraViewController = NASACameraViewController(filter: currentFilter)
         cameraViewController.delegate = self
         present(cameraViewController, animated: true, completion: nil)
     }
@@ -68,7 +69,7 @@ class CuriosityViewController: UIViewController {
         let filterImage = UIImage(systemName: "line.horizontal.3.decrease.circle")
         let filterButton = UIBarButtonItem(image: filterImage, style: .plain, target: self, action: #selector(filterButtonDidTap))
         navigationItem.rightBarButtonItem = filterButton
-        
+        navigationItem.title = "Curiosity - \(currentFilter)"
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: NASAHelper.createThreeColumnFlowLayout(in: view))
         collectionView.register(NASAPhotoCell.self, forCellWithReuseIdentifier: NASAPhotoCell.reuseIdentifier)
         collectionView.backgroundColor = .systemBackground
@@ -119,8 +120,10 @@ extension CuriosityViewController: NASACameraViewControllerDelegate {
     func didFinishPickingCamera(camera: String) {
         guard !isLoading else { return }
         photos.removeAll()
+        currentFilter = camera.uppercased()
+        navigationItem.title = "Curiosity - \(camera.uppercased())"
         if camera != "all" {
-            performRequest(byCamera: camera)
+            performRequest(byCamera: currentFilter)
         } else {
             isFiltered = false
             performRequest(byPage: currentPage)
